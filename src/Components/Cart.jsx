@@ -8,6 +8,7 @@ const Cart = () => {
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
+            <div className='absolute w-[300px] h-[300px] rounded-[100%] bg-yellowG-0 top-[-20%] left-[-50%] z-0'></div>
             <div className='relative my-[12px] block'>
                 <img src={nikeLogo} className='block w-[50px] box-content overflow-clip' />
             </div>

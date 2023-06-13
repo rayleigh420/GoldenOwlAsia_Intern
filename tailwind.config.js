@@ -21,6 +21,9 @@ export default {
       cartItem: {
         transform: ['rotate(-28deg) translateY(-40px)'],
         filter: ['drop-shadow(0 30px 20px rgba(0,0,0,.2))']
+      },
+      animation: {
+        'bg_anima': 'ease-in-out 8s infinite alternate'
       }
     },
   },

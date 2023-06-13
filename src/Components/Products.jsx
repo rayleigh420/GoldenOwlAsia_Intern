@@ -16,6 +16,7 @@ const Products = () => {
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
+            <div className='absolute w-[300px] h-[300px] rounded-[100%] bg-yellowG-0 top-[-20%] left-[-50%] z-0'></div>
             <div className='relative my-[12px] block'>
                 <img src={nikeLogo} className='block w-[50px] box-content overflow-clip' />
             </div>
@@ -26,7 +27,7 @@ const Products = () => {
                         shoes?.shoes.map((item, index) => (
                             <div key={index} className='py-[20px] md:py-[40px] first:pt-0'>
                                 <div style={{ backgroundColor: `${item.color}` }} className={`bg-[${item.color}]-1 ` + 'rounded-[30px] h-[380px] flex items-center overflow-hidden'}>
-                                    <img src={item.image} />
+                                    <img src={item.image} className='w-[100%] drop-shadow-[0_30px_20px_rgba(0,0,0,.2)] rotate-[-24deg] ml-[-16px]' />
                                 </div>
                                 <div className='text-[20px] font-bold mt-[26px] mb-[20px] leading-6'>
                                     {item.name}
@@ -43,7 +44,7 @@ const Products = () => {
                                                 <img src={check} className='w-[20px] max-w-[500%] translate-x-[-25%]' />
                                             </div>
                                             :
-                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition transition-all ease-in duration-[250ms] delay-0' onClick={() => addProduct(item)}>
+                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition-all ease-in duration-[250ms] delay-0' onClick={() => addProduct(item)}>
                                                 <p>ADD TO CART</p>
                                             </div>
                                     }
