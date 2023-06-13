@@ -2,11 +2,10 @@ import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import check from '../assets/check.png'
 import useLocalStorage from '../hooks/useLocalstorage'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import CartContext from '../context/CartProvider'
 
 const Products = () => {
-    // const [value, setValue] = useLocalStorage('cartItem', [])
     const { cart, setCart } = useContext(CartContext)
 
     const addProduct = (item) => {
@@ -16,8 +15,6 @@ const Products = () => {
         const cartItem = [...cart, { ...item, amount: 1 }]
         setCart(cartItem)
     }
-
-    console.log(cart)
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
@@ -49,7 +46,7 @@ const Products = () => {
                                                 <img src={check} className='w-[20px] max-w-[500%] translate-x-[-30%]' />
                                             </div>
                                             :
-                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition-all ease-in duration-[250ms] delay-0 hover:shadow-current hover:shadow-[-1px_1px_3px_rgba(0,0,0,0.05)] hover:opacity-85' onClick={() => addProduct(item)}>
+                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition-all ease-in duration-[600ms] delay-0 hover:shadow-current hover:shadow-[-1px_1px_3px_rgba(0,0,0,0.05)] hover:opacity-85' onClick={() => addProduct(item)}>
                                                 <p>ADD TO CART</p>
                                             </div>
                                     }

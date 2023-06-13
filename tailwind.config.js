@@ -26,8 +26,36 @@ export default {
         bgmove: {
           '0%': { transform: 'translateX(-48%) skewY(-8deg)' },
           '100%': { transform: 'translateX(-34%) skewY(-6deg)' },
-        }
-      }
+        },
+        imgmove: {
+          '0%': { opacity: '0', scale: '0.5' },
+          '100%': { opacity: '1', scale: '1' },
+        },
+        namemove: {
+          '0%': { opacity: '0', transform: 'translateX(100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        amountmove: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        productmovein: {
+          '0%': { opacity: '1', scale: '1' },
+          '100%': { opacity: '0', scale: '0' },
+        },
+        productmoveout: {
+          '0%': { opacity: '1', scale: '1' },
+          '100%': { opacity: '1', scale: '1' },
+        },
+      },
+      animation: {
+        'imganimation': 'imgmove 1s cubic-bezier(0, 0.71, 0.2, 1.01)',
+        'nameanimation': 'namemove 0.4s ease-in-out',
+        'priceanimation': 'namemove 0.4s ease-in-out',
+        'amountanimation': 'namemove 0.4s ease-in-out',
+        'productinanimation': 'productmovein 0.5s ease-in-out',
+        'productoutanimation': 'productmoveout 0.5s ease-in-out'
+      },
     },
   },
   plugins: [],
