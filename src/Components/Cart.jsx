@@ -2,9 +2,12 @@ import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import ProductItem from './ProductItem'
 import useLocalStorage from '../hooks/useLocalstorage'
+import { useContext, useEffect } from 'react'
+import CartContext from '../context/CartProvider'
 
 const Cart = () => {
-    const [value, setValue] = useLocalStorage('cartItem', [])
+    // const [value, setValue] = useLocalStorage('cartItem', [])
+    const { cart, setCart } = useContext(CartContext)
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
@@ -17,15 +20,22 @@ const Cart = () => {
                 <span className='float-right'>$3318.49</span>
             </div>
             <div className='relative overflow-y-scroll h-[calc(100%-98px)] no-scrollbar'>
-                <div className=''>
-                    <div>
-                        {
-                            value.map((item, index) => (
-                                <ProductItem key={index} item={item} />
-                            ))
-                        }
-                    </div>
-                </div>
+                {
+                    cart.length == 0 ?
+                        <div className='absolute'>
+                            <p className='text-[14px] font-light'>Your cart is empty</p>
+                        </div>
+                        :
+                        <div className=''>
+                            <div>
+                                {
+                                    cart.map((item, index) => (
+                                        <ProductItem key={index} item={item} />
+                                    ))
+                                }
+                            </div>
+                        </div>
+                }
             </div>
         </div>
     )
