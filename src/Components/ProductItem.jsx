@@ -20,18 +20,18 @@ const ProductItem = ({ item, updateAmount, deleteProduct }) => {
             setAmount(prev => prev - 1)
             updateAmount(item, amount - 1)
         } else {
-            setAmount(prev => prev - 1)
-            setTimeout(() => {
-                deleteProduct(item)
-            }, 500)
+            // setTimeout(() => {
+            //     setAmount(prev => prev - 1)
+            // }, 500)
+            deleteProduct(item)
         }
     }
 
     const handleDeleteCart = (item) => {
-        setAmount(prev => prev - 1)
-        setTimeout(() => {
-            deleteProduct(item)
-        }, 500)
+        // setAmount(prev => prev - 1)
+        // setTimeout(() => {
+        // }, 500)
+        deleteProduct(item)
     }
 
     return (

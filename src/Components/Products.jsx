@@ -34,7 +34,7 @@ const Products = () => {
                                 <div className='text-[20px] font-bold mt-[26px] mb-[20px] leading-6'>
                                     {item.name}
                                 </div>
-                                <div className='text-[13px] text-[#777] leading-[28.8px] mb-[20px]'>
+                                <div className='font-light text-[13px] text-[#777] leading-[23.4px] mb-[20px]'>
                                     {item.description}
                                 </div>
                                 <div className="flex justify-between items-center">
