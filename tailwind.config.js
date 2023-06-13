@@ -22,8 +22,11 @@ export default {
         transform: ['rotate(-28deg) translateY(-40px)'],
         filter: ['drop-shadow(0 30px 20px rgba(0,0,0,.2))']
       },
-      animation: {
-        'bg_anima': 'ease-in-out 8s infinite alternate'
+      keyframes: {
+        bgmove: {
+          '0%': { transform: 'translateX(-48%) skewY(-8deg)' },
+          '100%': { transform: 'translateX(-34%) skewY(-6deg)' },
+        }
       }
     },
   },
