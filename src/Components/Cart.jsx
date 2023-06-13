@@ -1,8 +1,11 @@
 import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import ProductItem from './ProductItem'
+import useLocalStorage from '../hooks/useLocalstorage'
 
 const Cart = () => {
+    const [value, setValue] = useLocalStorage('cartItem', [])
+
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
             <div className='relative my-[12px] block'>
@@ -15,9 +18,8 @@ const Cart = () => {
             <div className='relative overflow-y-scroll h-[calc(100%-98px)] no-scrollbar'>
                 <div className=''>
                     <div>
-
                         {
-                            shoes?.shoes.map((item, index) => (
+                            value.map((item, index) => (
                                 <ProductItem key={index} item={item} />
                             ))
                         }

@@ -1,12 +1,15 @@
 import trash from '../assets/trash.png'
+import useLocalStorage from '../hooks/useLocalstorage'
 
 const ProductItem = ({ item }) => {
+    const [value, setValue] = useLocalStorage('cartItem', [])
+
     return (
         <div className="flex py-[20px]">
             <div className="flex-0">
-                <div className="w-[90px] h-[90px] rounded-[100%] mr-[34px] bg-yellow-300">
+                <div className="w-[90px] h-[90px] rounded-[100%] mr-[34px]" style={{ backgroundColor: `${item.color}` }}>
                     <div className="">
-                        <img src={item.image} className="ml-0 block w-[140%] max-w-[140%] overflow-clip box-content rotate-[-28deg] translate-y-[-40px] translate-x-[-20px] drop-shadow-[0_30px_20px_rgba(0,0,0,.2)]" />
+                        <img src={item.image} className="ml-0 block w-[140%] max-w-[140%] overflow-clip box-content rotate-[-28deg] translate-y-[-35px] translate-x-[-20px] drop-shadow-[0_30px_20px_rgba(0,0,0,.2)]" />
                     </div>
                 </div>
             </div>
