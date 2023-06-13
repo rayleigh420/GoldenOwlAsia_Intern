@@ -3,22 +3,23 @@ import trash from '../assets/trash.png'
 import useLocalStorage from '../hooks/useLocalstorage'
 import CartContext from '../context/CartProvider'
 
-const ProductItem = ({ item }) => {
+const ProductItem = ({ item, updateAmount, deleteProduct }) => {
     // const [value, setValue] = useLocalStorage('cartItem', [])
     const { cart, setCart } = useContext(CartContext)
 
     const [amount, setAmount] = useState(item.amount)
 
     const handleIncrease = () => {
-        console.log("Increase")
         setAmount(prev => prev + 1)
+        updateAmount(item, amount + 1)
     }
 
     const handleDecrease = () => {
         if (amount > 1) {
             setAmount(prev => prev - 1)
+            updateAmount(item, amount - 1)
         } else {
-
+            deleteProduct(item)
         }
     }
 
@@ -44,7 +45,7 @@ const ProductItem = ({ item }) => {
                         <div className="text-[14px] mx-[8px] w-[20px] text-center">{amount}</div>
                         <div className="cursor-pointer w-[28px] h-[28px] leading-[28px] rounded-[100%] bg-[#eee] text-[16px] font-bold flex justify-center items-center" onClick={handleIncrease}>+</div>
                     </div>
-                    <div className='w-[28px] h-[28px] cursor-pointer rounded-[100%] flex justify-center items-center bg-yellowG-0'>
+                    <div className='w-[28px] h-[28px] cursor-pointer rounded-[100%] flex justify-center items-center bg-yellowG-0' onClick={() => deleteProduct(item)}>
                         <img src={trash} className='w-[16px] h-[16px] overflow-clip' />
                     </div>
                 </div>

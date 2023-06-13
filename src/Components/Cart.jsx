@@ -2,12 +2,32 @@ import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import ProductItem from './ProductItem'
 import useLocalStorage from '../hooks/useLocalstorage'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import CartContext from '../context/CartProvider'
 
 const Cart = () => {
-    // const [value, setValue] = useLocalStorage('cartItem', [])
     const { cart, setCart } = useContext(CartContext)
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        const sum = cart.reduce((a, b) => (a + (Number(b.amount) * Number(b.price))), 0);
+        setTotal(sum.toFixed(2))
+    }, [cart])
+
+    const updateAmount = (item, amount) => {
+        if (amount != 0) {
+            console.log(amount)
+            const index = cart.findIndex(product => product.id == item.id)
+            const cartClone = [...cart]
+            cartClone[index].amount = amount
+            setCart(cartClone)
+        }
+    }
+
+    const deleteProduct = (item) => {
+        const cartClone = cart.filter(product => product.id != item.id)
+        setCart(cartClone)
+    }
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>
@@ -17,7 +37,7 @@ const Cart = () => {
             </div>
             <div className="relative text-[24px] font-bold my-[16px]">
                 Your cart
-                <span className='float-right'>$3318.49</span>
+                <span className='float-right'>${total}</span>
             </div>
             <div className='relative overflow-y-scroll h-[calc(100%-98px)] no-scrollbar'>
                 {
@@ -30,7 +50,7 @@ const Cart = () => {
                             <div>
                                 {
                                     cart.map((item, index) => (
-                                        <ProductItem key={index} item={item} />
+                                        <ProductItem key={index} item={item} updateAmount={updateAmount} deleteProduct={deleteProduct} />
                                     ))
                                 }
                             </div>
