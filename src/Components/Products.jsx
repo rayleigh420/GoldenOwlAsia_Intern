@@ -39,10 +39,11 @@ const Products = () => {
                                     {
                                         value.find(product => product.id == item.id) ?
                                             <div className='relative w-[46px] cursor-default bg-yellowG-0 font-bold text-[14px] box-border h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100%] whitespace-nowrap flex items-center overflow-hidden '>
-                                                <p className='text-[20px]'>&#10004;</p>
+                                                {/* <p className='text-[20px]'>&#10004;</p> */}
+                                                <img src={check} className='w-[20px] max-w-[500%] translate-x-[-25%]' />
                                             </div>
                                             :
-                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap' onClick={() => addProduct(item)}>
+                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition transition-all ease-in duration-[250ms] delay-0' onClick={() => addProduct(item)}>
                                                 <p>ADD TO CART</p>
                                             </div>
                                     }
