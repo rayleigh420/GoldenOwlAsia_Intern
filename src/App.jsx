@@ -1,11 +1,8 @@
 import './App.css'
 import Products from './Components/Products'
 import Cart from './Components/Cart'
-import useLocalStorage from './hooks/useLocalstorage'
-import { useEffect } from 'react'
 
 function App() {
-  // const [value, setValue] = useLocalStorage('cartItem', [])
 
   return (
     // <div className='bg-red-400 relative h-[100vh] flex flex-col md:flex-row justify-between items-center flex-wrap px-[20xp] max-w-[760px] mx-auto my-0'>
