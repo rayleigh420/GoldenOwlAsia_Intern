@@ -1,7 +1,6 @@
 import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import check from '../assets/check.png'
-import useLocalStorage from '../hooks/useLocalstorage'
 import { useContext, useState } from 'react'
 import CartContext from '../context/CartProvider'
 

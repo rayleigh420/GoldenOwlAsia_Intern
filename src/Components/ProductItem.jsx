@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react'
 import trash from '../assets/trash.png'
-import useLocalStorage from '../hooks/useLocalstorage'
 import CartContext from '../context/CartProvider'
 
 const ProductItem = ({ item, updateAmount, deleteProduct }) => {
