@@ -1,4 +1,3 @@
-import shoes from '../data/shoes.json'
 import nikeLogo from '../assets/nike.png'
 import ProductItem from './ProductItem'
 import { useContext, useEffect, useState } from 'react'
@@ -24,9 +23,12 @@ const Cart = () => {
     }
 
     const deleteProduct = (item) => {
-        const cartClone = cart.filter(product => product.id != item.id)
-        setCart(cartClone)
+        // const cartClone = [...cart].filter(product => product.id != item.id)
+        // console.log(cartClone)
+        setCart(prev => prev.filter(product => product.id != item.id))
     }
+
+    console.log(cart)
 
     return (
         <div className='relative bg-whiteG-0 box-border w-[360px] h-[600px] shadow-itemShadow rounded-[30px] px-[28px] overflow-hidden mb-[20px] md:mb-0'>

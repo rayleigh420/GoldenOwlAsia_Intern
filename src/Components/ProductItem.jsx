@@ -1,13 +1,16 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import trash from '../assets/trash.png'
 import CartContext from '../context/CartProvider'
+import useLocalStorage from '../hooks/useLocalstorage'
 
 const ProductItem = ({ item, updateAmount, deleteProduct }) => {
-    // const [value, setValue] = useLocalStorage('cartItem', [])
     const { cart, setCart } = useContext(CartContext)
-    const [del, setDel] = useState(false)
 
-    const [amount, setAmount] = useState(item.amount)
+    const [amount, setAmount] = useState(1)
+
+    useEffect(() => {
+        setAmount(item.amount)
+    })
 
     const handleIncrease = () => {
         setAmount(prev => prev + 1)
@@ -30,6 +33,7 @@ const ProductItem = ({ item, updateAmount, deleteProduct }) => {
         // setAmount(prev => prev - 1)
         // setTimeout(() => {
         // }, 500)
+        // setAmount(1)
         deleteProduct(item)
     }
 
