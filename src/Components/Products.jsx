@@ -49,7 +49,7 @@ const Products = () => {
                                                 <img src={check} className='w-[20px] max-w-[500%] translate-x-[-30%]' />
                                             </div>
                                             :
-                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition-all ease-in duration-[250ms] delay-0' onClick={() => addProduct(item)}>
+                                            <div className='relative cursor-pointer bg-yellowG-0 font-bold text-[14px] box-border w-auto h-[46px] min-w-[46px] py-[16px] px-[20px] rounded-[100px] flex items-center overflow-hidden whitespace-nowrap transition-all ease-in duration-[250ms] delay-0 hover:shadow-current' onClick={() => addProduct(item)}>
                                                 <p>ADD TO CART</p>
                                             </div>
                                     }

@@ -41,11 +41,11 @@ const ProductItem = ({ item, updateAmount, deleteProduct }) => {
                 </div>
                 <div className="flex justify-start items-center">
                     <div className="flex-1 flex justify-start items-center">
-                        <div className="cursor-pointer w-[28px] h-[28px] leading-[28px] rounded-[100%] bg-[#eee] text-[16px] font-bold flex justify-center items-center" onClick={handleDecrease}>-</div>
+                        <div className="cursor-pointer w-[28px] h-[28px] leading-[28px] rounded-[100%] bg-[#eee] text-[16px] font-bold flex justify-center items-center hover:bg-gray-300 transition-all ease-linear duration-[200ms] delay-0" onClick={handleDecrease}>-</div>
                         <div className="text-[14px] mx-[8px] w-[20px] text-center">{amount}</div>
-                        <div className="cursor-pointer w-[28px] h-[28px] leading-[28px] rounded-[100%] bg-[#eee] text-[16px] font-bold flex justify-center items-center" onClick={handleIncrease}>+</div>
+                        <div className="cursor-pointer w-[28px] h-[28px] leading-[28px] rounded-[100%] bg-[#eee] text-[16px] font-bold flex justify-center items-center hover:bg-gray-300 transition-all ease-linear duration-[200ms] delay-0" onClick={handleIncrease}>+</div>
                     </div>
-                    <div className='w-[28px] h-[28px] cursor-pointer rounded-[100%] flex justify-center items-center bg-yellowG-0' onClick={() => deleteProduct(item)}>
+                    <div className='w-[28px] h-[28px] cursor-pointer rounded-[100%] flex justify-center items-center bg-yellowG-0 hover:shadow-inherit' onClick={() => deleteProduct(item)}>
                         <img src={trash} className='w-[16px] h-[16px] overflow-clip' />
                     </div>
                 </div>
